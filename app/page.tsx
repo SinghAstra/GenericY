@@ -3,6 +3,8 @@
 import type React from "react";
 
 import { siteConfig } from "@/config/site";
+
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import CTASection from "../components/cta-section";
@@ -66,35 +68,6 @@ export default function LandingPage() {
     if (!mountedRef.current) return;
     setActiveCard(index);
     setProgress(0);
-  };
-
-  const getDashboardContent = () => {
-    switch (activeCard) {
-      case 0:
-        return (
-          <div className="text-[#828387] text-sm">
-            Customer Subscription Status and Details
-          </div>
-        );
-      case 1:
-        return (
-          <div className="text-[#828387] text-sm">
-            Analytics Dashboard - Real-time Insights
-          </div>
-        );
-      case 2:
-        return (
-          <div className="text-[#828387] text-sm">
-            Data Visualization - Charts and Metrics
-          </div>
-        );
-      default:
-        return (
-          <div className="text-[#828387] text-sm">
-            Customer Subscription Status and Details
-          </div>
-        );
-    }
   };
 
   return (
@@ -165,9 +138,11 @@ export default function LandingPage() {
             </div>
 
             <div className="absolute top-[232px] sm:top-[248px] md:top-[264px] lg:top-[320px] left-1/2 transform -translate-x-1/2 z-0 pointer-events-none">
-              <img
+              <Image
                 src="/mask-group-pattern.svg"
                 alt=""
+                width={2808}
+                height={936}
                 className="w-[936px] sm:w-[1404px] md:w-[2106px] lg:w-[2808px] h-auto opacity-30 sm:opacity-40 md:opacity-50 mix-blend-multiply"
                 style={{
                   filter: "hue-rotate(15deg) saturate(0.7) brightness(1.2)",
@@ -190,9 +165,10 @@ export default function LandingPage() {
                             : "opacity-0 scale-95 blur-sm"
                         }`}
                       >
-                        <img
+                        <Image
                           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dsadsadsa.jpg-xTHS4hGwCWp2H5bTj8np6DXZUyrxX7.jpeg"
                           alt="Schedules Dashboard - Customer Subscription Management"
+                          fill
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -205,9 +181,10 @@ export default function LandingPage() {
                             : "opacity-0 scale-95 blur-sm"
                         }`}
                       >
-                        <img
+                        <Image
                           src="/analytics-dashboard-with-charts-graphs-and-data-vi.jpg"
                           alt="Analytics Dashboard"
+                          fill
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -220,9 +197,10 @@ export default function LandingPage() {
                             : "opacity-0 scale-95 blur-sm"
                         }`}
                       >
-                        <img
+                        <Image
                           src="/data-visualization-dashboard-with-interactive-char.jpg"
                           alt="Data Visualization Dashboard"
+                          fill
                           className="w-full h-full object-contain" // Changed from object-cover to object-contain to preserve landscape aspect ratio
                         />
                       </div>
@@ -399,10 +377,8 @@ export default function LandingPage() {
                   {/* Logo Grid - Responsive grid */}
                   {Array.from({ length: 8 }).map((_, index) => {
                     const isMobileFirstColumn = index % 2 === 0;
-                    const isMobileLastColumn = index % 2 === 1;
                     const isDesktopFirstColumn = index % 4 === 0;
                     const isDesktopLastColumn = index % 4 === 3;
-                    const isMobileBottomRow = index >= 6;
                     const isDesktopTopRow = index < 4;
                     const isDesktopBottomRow = index >= 4;
 
@@ -436,9 +412,10 @@ export default function LandingPage() {
                           `}
                       >
                         <div className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 relative shadow-[0px_-4px_8px_rgba(255,255,255,0.64)_inset] overflow-hidden rounded-full">
-                          <img
+                          <Image
                             src="/horizon-icon.svg"
                             alt="Horizon"
+                            fill
                             className="w-full h-full object-contain"
                           />
                         </div>
